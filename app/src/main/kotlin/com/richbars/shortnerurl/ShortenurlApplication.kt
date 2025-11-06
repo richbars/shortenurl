@@ -1,11 +1,11 @@
-package com.richbars.shortenurl
+package com.richbars.shortnerurl
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 
 @SpringBootApplication
-class ShortenurlApplication
+class shortnerurlApplication
 
 fun main(args: Array<String>) {
-	runApplication<ShortenurlApplication>(*args)
+	runApplication<shortnerurlApplication>(*args)
 }

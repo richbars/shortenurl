@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <!-- Injetar nome da aplicação -->
+    <springProperty scope="context" name="appName" source="spring.application.name"/>
+
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder class="net.logstash.logback.encoder.LoggingEventCompositeJsonEncoder">
+            <providers>
+                <!-- Timestamp padrão -->
+                <timestamp>
+                    <timeZone>America/Sao_Paulo</timeZone>
+                </timestamp>
+
+                <!-- Nível do log -->
+                <logLevel />
+
+                <!-- Nome do logger (classe) -->
+                <loggerName />
+
+                <!-- Mensagem -->
+                <message />
+
+                <!-- Nome da aplicação vindo do Spring -->
+                <mdc>
+                    <includeMdcKeyName>app</includeMdcKeyName>
+                </mdc>
+
+                <!-- Custom field para appName -->
+                <customFields>{"app":"${appName}"}</customFields>
+            </providers>
+        </encoder>
+    </appender>
+
+    <root level="INFO">
+        <appender-ref ref="CONSOLE"/>
+    </root>
+
+</configuration>
